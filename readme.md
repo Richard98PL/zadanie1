@@ -2,13 +2,6 @@ Czesc I
 ==============
 Proszę napisać program serwera (dowolny język programowania), który realizować będzie następującą funkcjonalność: <br/>
 
-Do rozwiazania uzyto proxy, t.j. uzycia zewnetrznego serwisu, ktory na podstawie ip obliczal potrzebne informacje. Nie istnieje funkcja wbudowana do okreslenia tak precyzyjnych informacji na podstawie adresu IP {ipinfo.com}.
-
-Serwer to python/django, ktory uzyskuje ip callera przy pomocy danych fragmentów kodu:
-![image](https://user-images.githubusercontent.com/41301282/170380451-62e91636-8528-4ba2-91d6-db2e0e29521d.png)
-![image](https://user-images.githubusercontent.com/41301282/170380503-84fae09f-a174-46d7-877f-8e00bfc241c6.png)
-
-
 a.	po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie TCP, na którym serwer nasłuchuje na zgłoszenia klienta. <br/>
 
 ``` 
@@ -29,6 +22,16 @@ b.	na podstawie adresu IP klienta łączącego się z serwerem, w przeglądarce 
 ![image](https://user-images.githubusercontent.com/41301282/170372375-736e2086-c319-4ec1-a30c-fec0e749bb56.png)
 
 ![image](https://user-images.githubusercontent.com/41301282/170372346-dd9edafd-5821-4509-86f0-6418de26d4ca.png)
+
+
+
+Do rozwiazania uzyto proxy, t.j. uzycia zewnetrznego serwisu, ktory na podstawie ip obliczal potrzebne informacje. Nie istnieje funkcja wbudowana do okreslenia tak precyzyjnych informacji na podstawie adresu IP {ipinfo.com}.
+
+Serwer to python/django, ktory uzyskuje ip callera przy pomocy danych fragmentów kodu: <br/>
+![image](https://user-images.githubusercontent.com/41301282/170380451-62e91636-8528-4ba2-91d6-db2e0e29521d.png)
+![image](https://user-images.githubusercontent.com/41301282/170380503-84fae09f-a174-46d7-877f-8e00bfc241c6.png)
+
+
 
 Czesc II
 ==========
