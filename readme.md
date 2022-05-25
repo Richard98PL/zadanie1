@@ -35,6 +35,12 @@ Serwer to python/django, ktory uzyskuje ip callera przy pomocy danych fragmentó
 
 Czesc II
 ==========
+
+Opracować plik Dockerfile, który pozwoli na zbudowanie obrazu kontenera realizującego funkcjonalność opisaną w punkcie 1. Przy ocenie brane będzie sposób opracowania tego pliku (dobór obrazu bazowego, wieloetapowe budowanie obrazu, ewentualne wykorzystanie warstwy scratch, optymalizacja pod kątem funkcjonowania cache-a w procesie budowania). Dockerfile powinien również zawierać informację o autorze tego pliku (ponownie imię i nazwisko studenta).
+
+![image](https://user-images.githubusercontent.com/41301282/170380682-757b2e96-250b-474f-a1cb-e6d23856fc9c.png)
+
+
 ![image](https://user-images.githubusercontent.com/41301282/170372470-cfb608d4-ef52-4bf4-a94d-2a8a16dff3ce.png)
 
 ![image](https://user-images.githubusercontent.com/41301282/170372489-f0e1dfee-7303-45d3-85b4-a3dcf130048f.png)
