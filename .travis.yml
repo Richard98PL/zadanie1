@@ -13,8 +13,9 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
-script:
-  - docker-compose up --build -d --force-recreate
+before_script:
+  - docker-compose up -d --force-recreate
+  - docker-compose ps
 
 deploy:
   provider: elasticbeanstalk
