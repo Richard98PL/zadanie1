@@ -4,8 +4,10 @@ language: python
 services:
   - docker
 
-before_script:
-  - docker-compose up --build
+script:
+  - docker-compose build web
+  - docker-compose -f .travis.yml build
+  - docker-compose -f .travis.yml up -d
 
 deploy:
   provider: elasticbeanstalk
