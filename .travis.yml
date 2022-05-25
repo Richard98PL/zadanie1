@@ -5,7 +5,7 @@ services:
   - docker
 
 before_script:
-  - docker-compose up --build -d
+  - docker-compose up --build
 
 deploy:
   provider: elasticbeanstalk
