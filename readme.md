@@ -9,11 +9,14 @@ Do rozwiazania uzyto proxy, t.j. uzycia zewnetrznego serwisu, ktory na podstawie
 
 ``` 
 docker-compose up --build -d
+```
+
 ![image](https://user-images.githubusercontent.com/41301282/170371595-9e86bd1b-7b89-4638-8da5-5420914f7513.png)
 
-docker logs -f docker_task_web_1
-![image](https://user-images.githubusercontent.com/41301282/170372265-47b632c3-2bc9-451f-9f33-5f63a9d3fb86.png)
 ```
+docker logs -f docker_task_web_1
+```
+![image](https://user-images.githubusercontent.com/41301282/170372265-47b632c3-2bc9-451f-9f33-5f63a9d3fb86.png)
 
 b.	na podstawie adresu IP klienta łączącego się z serwerem, w przeglądarce powinna zostać wyświetlona strona informująca o adresie IP klienta i na podstawie tego adresu IP, o dacie i godzinie w jego strefie czasowej.<br/>
 
