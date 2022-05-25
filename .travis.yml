@@ -5,6 +5,7 @@ services:
   - docker
 
 script:
+  - pip install gunicorn
   - docker-compose build web
   - docker-compose build
   - docker-compose up -d
