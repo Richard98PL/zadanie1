@@ -1,190 +1,87 @@
-The project is just a simple django app and dockerized. added github action and every git pushing going to build docker iamge and automatically pushing to docker image registry.
+1.
+==========
+Proszę napisać program serwera (dowolny język programowania), który realizować będzie następującą funkcjonalność: <br/>
+a.	po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie TCP, na którym serwer nasłuchuje na zgłoszenia klienta. <br/>
 
 
-A few usefull command:
-
- `sudo docker inspect <containerid/name>` to check all the network info and everything
-` sudo docker image ls` list docker iamge
-
-# github action/workflow:
-01. Please `.github/workflow` where we added github action to build docker and push github package restiry to docker package registry
-
-# 1. 
-Please write a server program (any programming language) that will implement the following functionality:
-a.after launching the container, the server leaves in the logs information about the date of launch, first and last name of the server author (student's first and last name) and the TCP port on which the server listens for the client's requests.
-b. based on the IP address of the client connecting to the server, the browser should display a page informing about the client's IP address and based on this IP address, about the date and time in its time zone.
-
-In the report, please include the software code along with the necessary comments.
-
-### Solution
-  A few usefull command:
-
- `sudo docker inspect <containerid/name>` to check all the network info and everything
-` sudo docker image ls` list docker iamge and check which image created when
-`sudo docker-compose up --build` to run and build the project in your machine, which will run in daemon mode
-
-The server side is writing in python and django.
-at first get access to docker contaier by `docker exec -it docker_task-master_web_1 bash` and then create a superuser with `python3 manage.py createsupeurser` and you can login there, there will be optoin to store your first name, last name, and every single logs.
-
-or you can check the log with `docker inspect` commands
-
-To check this webpage on your browser, please hit with your local ip addpress or machine ip address, in this case, we are shong localhost ipaddress.
-there is a home page of django `http://127.0.0.1:8000/` and to login to admin panel, go there `http://127.0.0.1:8000/admin`. You must create superuser to login to the admin panels
+Do rozwiazania uzyto proxy, t.j. uzycia zewnetrznego serwisu, ktory na podstawie ip obliczal potrzebne informacje. Nie istnieje funkcja wbudowana do okreslenia tak precyzyjnych informacji na podstawie adresu IP.
 
 
-# 2. 
-Develop a Dockerfile file that will allow you to build an image of the container implementing the functionality described in point 1. The assessment will take into account the method of developing this file (selection of the base image, multi-stage image building, possible use of the scratch layer, optimization of the cache in the building process) . The Dockerfile should also contain information about the author of this file (again the first and last name of the student).
+``` 
+docker-compose up --build -d
+![image](https://user-images.githubusercontent.com/41301282/170371595-9e86bd1b-7b89-4638-8da5-5420914f7513.png)
 
-In the report, please include the Dockerfile with the necessary comments.
-
-## solutions
-
-We have selected base image `python:3`
-Currently our dockerfile is below multip stage. to build multi-stage image, we can use `docker-compose.yaml` for seperate process, everything have to write inside `services` to put another stage of image build
-
-Also we can build image from scratch from any linux distro as you mentioned above like `ubuntu`, `centos` etcs. we can use our base image as this: https://hub.docker.com/_/ubuntu to build from scratch.
-
-```
-# MAINTAINER 'Ryszard Roman' # it is depected
-# to set maintainer name, do like this: docker commit -a "Author Name"
-FROM python:3
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-WORKDIR /code
-COPY requirements.txt /code/
-RUN pip install -r requirements.txt # installing dependencies
-COPY . /code/
+docker logs -f docker_task_web_1
+![image](https://user-images.githubusercontent.com/41301282/170372265-47b632c3-2bc9-451f-9f33-5f63a9d3fb86.png)
 ```
 
-```
-version: '3.9'
+b.	na podstawie adresu IP klienta łączącego się z serwerem, w przeglądarce powinna zostać wyświetlona strona informująca o adresie IP klienta i na podstawie tego adresu IP, o dacie i godzinie w jego strefie czasowej.<br/>
+
+![image](https://user-images.githubusercontent.com/41301282/170372307-ec5f94d2-cf53-47a3-bb1e-b9cf2845b3cd.png)
+
+![image](https://user-images.githubusercontent.com/41301282/170372375-736e2086-c319-4ec1-a30c-fec0e749bb56.png)
+
+![image](https://user-images.githubusercontent.com/41301282/170372346-dd9edafd-5821-4509-86f0-6418de26d4ca.png)
+
+2.
+==========
+![image](https://user-images.githubusercontent.com/41301282/170372470-cfb608d4-ef52-4bf4-a94d-2a8a16dff3ce.png)
+
+![image](https://user-images.githubusercontent.com/41301282/170372489-f0e1dfee-7303-45d3-85b4-a3dcf130048f.png)
 
 
-services:
-  web:
-      build: .
-      command: python manage.py runserver 0.0.0.0:8000
-      volumes:
-        - .:/code
-      ports:
-        - "8000:8000"
-```
+3.
+==========
+Należy podać polecenia niezbędne do: <br/>
+a.	zbudowania opracowanego obrazu kontenera, <br/>
+```docker-compose build```
+![image](https://user-images.githubusercontent.com/41301282/170377144-887af6b2-0bd2-439f-8daa-069c1b9da5e6.png)
 
-# 3. 
-Provide the commands necessary for:
-a.building a developed container image,
-b. launching the container on the basis of the built image,
-c. the method of obtaining the information generated by the server during the container startup (see point 1a),
-d. check how many layers the built image has.
+b.	uruchomienia kontenera na podstawie zbudowanego obrazu, <br/>
+``` docker-compose up -d ```
+![image](https://user-images.githubusercontent.com/41301282/170377317-6dae76bf-ef4b-46e9-9e1b-81e643fc2d6b.png)
 
-The report should include the content of the commands (points a - d) together with any comments and a screenshot of the browser window confirming the correct operation of the system.
+c.	sposobu uzyskania informacji, które wygenerował serwer w trakcie uruchamiana kontenera (patrz: punkt 1a), <br/>
+``` docker logs -f docker_task_web_1 ```
+![image](https://user-images.githubusercontent.com/41301282/170377550-683e34dd-7c29-4975-916f-6980676a6103.png)
 
-### Solution
-> A: `docker-compose --build`
-> B: to lunch the container, check the docker-compse file below:
-
-```
-version: '3.7'
-
-services:
-  server:
-    image: ryszardfullstack/docker_task:tagname
-```
-
-> C:  `sudo docker inspect <containerid/name>` to check all the network info and everything
-`docker history --no-trunc <Image ID>` is to check how many layes of image and size
-
-# 4. 
-Build container images with the application developed in # 1, which will work on the following architectures: linux / arm / v7, linux / arm64 / v8 and linux / amd64. These images should be uploaded to your repository on DockerHub. The instructions used should be included in the report, together with the result of their operation and any comments.
+d.	sprawdzenia, ile warstw posiada zbudowany obraz. <br/>
+``` docker history docker_task_web ```
+![image](https://user-images.githubusercontent.com/41301282/170373671-e598b75e-3a9a-4780-aad0-00cdb4091ef4.png)
 
 
+4.
+==========
+Zbudować obrazy kontenera z aplikacją opracowaną w punkcie nr 1, które będą pracował na architekturach: linux/arm/v7, linux/arm64/v8 oraz linux/amd64. Obrazy te należy przesłać do swojego repozytorium na DockerHub. W sprawozdaniu należy podać wykorzystane instrukcje wraz z wynikiem ich działania I ewentualnymi komentarzami. <br />
 
-NOTE: (+ 10%) All information that must be provided in the report (points 1-4) can be processed in the form of the file task1.md and this file should be placed on the GitHub account as a customary description of the content of the git repository. In this repository, please also place the developed sources for the server and the prepared Dockerfile (and all other files that you think are necessary). In this case, only a text file containing links to the used repository on GitHub and DockerHub can be submitted as a report.
- 
-Additional points (max. 50%)
-Among all studies of Task 1, obligatory part, a solution (or solutions) using the image with the smallest size will be selected and "rewarded" with additional points - max. 50%
+```docker buildx build -t ryszardfullstack/lab1 --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .```
+Gdzie ryszardfullstack/lab1 to konto dockerhub/nazwa_repozytorium
 
+Punkty dodatkowe (max. 50%)
+==============
 
+-	z wykorzystaniem GitHubActions – max 40%
 
+======
 
-### Solution
-
-Please check `.github/workflow/` both github regestry and dockerhub registry code there, also the build sucess, you can check in github action
-
-
-
-5. Carry out step 4:
-- with the use of GitHubActions
-- additionally with the cache export setting and confirmation of the correctness of this method -
-max. thirty%
-- with data transfer not to DockerHub but to the GitHub repository along with a short description of the GitHub Container Registry configuration
-(supporting link: https://docs.github.com/en/packages/working-with-a-github-packages-registry/ working-with-the-container-registry)
-
-In the report, please include a description of the configurations made in succession along with the necessary comments.
+![image](https://user-images.githubusercontent.com/41301282/170380169-51973f57-9d2d-4611-be99-c6065624ab39.png)
 
 
-## solutions
+Wykonano przez utworzenie pliku konfiguracyjnego w lokalizacji .github/workflows
+![image](https://user-images.githubusercontent.com/41301282/170374748-37c304c9-29b8-4c6c-919a-b7a9376b0dec.png)
 
-> github registry
+Nalezy pamietac, ze od niedawna glowny branch nazywa sie main, a nie master jak w wiekszosci poradnikow w internecie
+Nalezy tez oczywiscie zdefiniowac secret -> password oraz username do dockerhub
 
-```
-name: Build and push to github container regestry
+- z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry – max. 20%
+=======
+Wykorzystano github container registry zamiast dockerhub
+konfiguracja prosta:  nalezy wygenerowac token i skonfigurowac plik ghcr.io w .github/workflows
+![image](https://user-images.githubusercontent.com/41301282/170376273-6f5673b1-eabc-4180-93c4-34b8427b0a71.png)
 
-on:
-  push:
-    branches:
-      - 'master'
+potencjalnie najtrudniejsze bylo znalezienie sposobu na automatyczne zastosowanie lowercase dla nazwy repozytorium (wymagane)
+![image](https://user-images.githubusercontent.com/41301282/170379669-0b5963b5-7eba-4adf-81c0-63745e8b8884.png)
 
-jobs:
-  Deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v1
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHR_TOKEN }}
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
-        with:
-          push: true # Will only build if this is not here
-          tags: |
-            ghcr.io/${{ github.repository }}:latest
-```
 
-dockerhub
+![image](https://user-images.githubusercontent.com/41301282/170379729-f1e1a6a5-448d-4c80-91de-92200839ebe4.png)
 
-```
-name: Build and push to dockerhub
-
-on:
-  push:
-    branches:
-      - 'master'
-
-jobs:
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ryszardfullstack/docker_task:tagname
-```
