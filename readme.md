@@ -1,5 +1,5 @@
-1.
-==========
+Czesc I
+==============
 Proszę napisać program serwera (dowolny język programowania), który realizować będzie następującą funkcjonalność: <br/>
 a.	po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie TCP, na którym serwer nasłuchuje na zgłoszenia klienta. <br/>
 
@@ -23,14 +23,14 @@ b.	na podstawie adresu IP klienta łączącego się z serwerem, w przeglądarce 
 
 ![image](https://user-images.githubusercontent.com/41301282/170372346-dd9edafd-5821-4509-86f0-6418de26d4ca.png)
 
-2.
+Czesc II
 ==========
 ![image](https://user-images.githubusercontent.com/41301282/170372470-cfb608d4-ef52-4bf4-a94d-2a8a16dff3ce.png)
 
 ![image](https://user-images.githubusercontent.com/41301282/170372489-f0e1dfee-7303-45d3-85b4-a3dcf130048f.png)
 
 
-3.
+Czesc III
 ==========
 Należy podać polecenia niezbędne do: <br/>
 a.	zbudowania opracowanego obrazu kontenera, <br/>
@@ -50,14 +50,14 @@ d.	sprawdzenia, ile warstw posiada zbudowany obraz. <br/>
 ![image](https://user-images.githubusercontent.com/41301282/170373671-e598b75e-3a9a-4780-aad0-00cdb4091ef4.png)
 
 
-4.
+Czesc IV
 ==========
 Zbudować obrazy kontenera z aplikacją opracowaną w punkcie nr 1, które będą pracował na architekturach: linux/arm/v7, linux/arm64/v8 oraz linux/amd64. Obrazy te należy przesłać do swojego repozytorium na DockerHub. W sprawozdaniu należy podać wykorzystane instrukcje wraz z wynikiem ich działania I ewentualnymi komentarzami. <br />
 
 ```docker buildx build -t ryszardfullstack/lab1 --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .```
 Gdzie ryszardfullstack/lab1 to konto dockerhub/nazwa_repozytorium
 
-Punkty dodatkowe (max. 50%)
+Czesc DODATKOWA
 ==============
 
 -	z wykorzystaniem GitHubActions – max 40%
