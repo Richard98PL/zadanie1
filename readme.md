@@ -1,8 +1,6 @@
 Czesc I
 ==============
 Proszę napisać program serwera (dowolny język programowania), który realizować będzie następującą funkcjonalność: <br/>
-a.	po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie TCP, na którym serwer nasłuchuje na zgłoszenia klienta. <br/>
-
 
 Do rozwiazania uzyto proxy, t.j. uzycia zewnetrznego serwisu, ktory na podstawie ip obliczal potrzebne informacje. Nie istnieje funkcja wbudowana do okreslenia tak precyzyjnych informacji na podstawie adresu IP {ipinfo.com}.
 
@@ -11,6 +9,7 @@ Serwer to python/django, ktory uzyskuje ip callera przy pomocy danych fragmentó
 ![image](https://user-images.githubusercontent.com/41301282/170380503-84fae09f-a174-46d7-877f-8e00bfc241c6.png)
 
 
+a.	po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie TCP, na którym serwer nasłuchuje na zgłoszenia klienta. <br/>
 
 ``` 
 docker-compose up --build -d
