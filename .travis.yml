@@ -4,10 +4,8 @@ language: python
 services:
   - docker
 
-
-
 before_script:
-  - docker-compose up -d --build
+  - docker-compose up --build -d
 
 deploy:
   provider: elasticbeanstalk
