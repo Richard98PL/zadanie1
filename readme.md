@@ -69,8 +69,9 @@ Zbudować obrazy kontenera z aplikacją opracowaną w punkcie nr 1, które będ�
 ```docker buildx build -t ryszardfullstack/lab1 --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .``` <br />
 Gdzie ryszardfullstack/lab1 to konto dockerhub/nazwa_repozytorium
 
-![image](https://user-images.githubusercontent.com/41301282/170380896-598f0d1b-02c2-479f-839f-aa5b08555971.png)
+![image](https://user-images.githubusercontent.com/41301282/170380896-598f0d1b-02c2-479f-839f-aa5b08555971.png) <br/>
 
+Dockerhub: https://hub.docker.com/repository/docker/ryszardfullstack/lab1
 
 Czesc DODATKOWA
 ==============
