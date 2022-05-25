@@ -46,19 +46,19 @@ Czesc III
 ==========
 Należy podać polecenia niezbędne do: <br/>
 a.	zbudowania opracowanego obrazu kontenera, <br/>
-```docker-compose build```
+```docker-compose build```<br/>
 ![image](https://user-images.githubusercontent.com/41301282/170377144-887af6b2-0bd2-439f-8daa-069c1b9da5e6.png)
 
 b.	uruchomienia kontenera na podstawie zbudowanego obrazu, <br/>
-``` docker-compose up -d ```
+``` docker-compose up -d ```<br/>
 ![image](https://user-images.githubusercontent.com/41301282/170377317-6dae76bf-ef4b-46e9-9e1b-81e643fc2d6b.png)
 
 c.	sposobu uzyskania informacji, które wygenerował serwer w trakcie uruchamiana kontenera (patrz: punkt 1a), <br/>
-``` docker logs -f docker_task_web_1 ```
+``` docker logs -f docker_task_web_1 ```<br/>
 ![image](https://user-images.githubusercontent.com/41301282/170377550-683e34dd-7c29-4975-916f-6980676a6103.png)
 
 d.	sprawdzenia, ile warstw posiada zbudowany obraz. <br/>
-``` docker history docker_task_web ```
+``` docker history docker_task_web ```<br/>
 ![image](https://user-images.githubusercontent.com/41301282/170373671-e598b75e-3a9a-4780-aad0-00cdb4091ef4.png)
 
 
