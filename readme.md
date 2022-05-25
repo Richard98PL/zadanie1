@@ -76,26 +76,24 @@ Dockerhub: https://hub.docker.com/repository/docker/ryszardfullstack/lab1
 Czesc DODATKOWA
 ==============
 
--	z wykorzystaniem GitHubActions – max 40%
+z wykorzystaniem GitHubActions – max 40%
 
-======
+Wykonano przez utworzenie pliku konfiguracyjnego w lokalizacji .github/workflows <br />
+Nalezy pamietac, ze od niedawna glowny branch nazywa sie main, a nie master jak w wiekszosci poradnikow w internecie <br />
+Nalezy tez oczywiscie zdefiniowac secret -> password oraz username do dockerhub <br />
 
 ![image](https://user-images.githubusercontent.com/41301282/170380169-51973f57-9d2d-4611-be99-c6065624ab39.png)
 
 
-Wykonano przez utworzenie pliku konfiguracyjnego w lokalizacji .github/workflows
 ![image](https://user-images.githubusercontent.com/41301282/170374748-37c304c9-29b8-4c6c-919a-b7a9376b0dec.png)
 
-Nalezy pamietac, ze od niedawna glowny branch nazywa sie main, a nie master jak w wiekszosci poradnikow w internecie
-Nalezy tez oczywiscie zdefiniowac secret -> password oraz username do dockerhub
+z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry – max. 20% <br />
 
-- z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry – max. 20%
-=======
-Wykorzystano github container registry zamiast dockerhub
-konfiguracja prosta:  nalezy wygenerowac token i skonfigurowac plik ghcr.io w .github/workflows
+Wykorzystano github container registry zamiast dockerhub <br />
+konfiguracja prosta:  nalezy wygenerowac token i skonfigurowac plik ghcr.io w .github/workflows <br />
 ![image](https://user-images.githubusercontent.com/41301282/170376273-6f5673b1-eabc-4180-93c4-34b8427b0a71.png)
 
-potencjalnie najtrudniejsze bylo znalezienie sposobu na automatyczne zastosowanie lowercase dla nazwy repozytorium (wymagane)
+potencjalnie najtrudniejsze bylo znalezienie sposobu na automatyczne zastosowanie lowercase dla nazwy repozytorium (wymagane) <br />
 ![image](https://user-images.githubusercontent.com/41301282/170379669-0b5963b5-7eba-4adf-81c0-63745e8b8884.png)
 
 
