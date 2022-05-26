@@ -87,6 +87,19 @@ Nalezy tez oczywiscie zdefiniowac secret -> password oraz username do dockerhub 
 
 ![image](https://user-images.githubusercontent.com/41301282/170374748-37c304c9-29b8-4c6c-919a-b7a9376b0dec.png)
 
+dodatkowo z ustawieniem eksportu cache i potwierdzenie poprawności działania tej metody - max 30% <br />
+Wedle poradnika: https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
+Utworzono akcje, z parametrami cache do instalacji pliku requirements.txt
+![image](https://user-images.githubusercontent.com/41301282/170435346-c996f232-e945-497a-833c-df647c4e092e.png)
+
+Pierwszy run: <br />
+![image](https://user-images.githubusercontent.com/41301282/170435394-3da27d6d-14d1-40d0-8a67-9aa1b0e5b5c8.png)
+
+Drugi run, juz z cache: <br />
+
+![image](https://user-images.githubusercontent.com/41301282/170435451-ac760315-00c7-47fb-9add-8ff2f2326774.png)
+
+
 z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry – max. 20% <br />
 
 Wykorzystano github container registry zamiast dockerhub <br />
