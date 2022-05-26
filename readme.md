@@ -77,6 +77,7 @@ Czesc DODATKOWA
 ==============
 
 z wykorzystaniem GitHubActions – max 40%
+==============
 
 Wykonano przez utworzenie pliku konfiguracyjnego w lokalizacji .github/workflows <br />
 Nalezy pamietac, ze od niedawna glowny branch nazywa sie main, a nie master jak w wiekszosci poradnikow w internecie <br />
@@ -88,8 +89,9 @@ Nalezy tez oczywiscie zdefiniowac secret -> password oraz username do dockerhub 
 ![image](https://user-images.githubusercontent.com/41301282/170374748-37c304c9-29b8-4c6c-919a-b7a9376b0dec.png)
 
 dodatkowo z ustawieniem eksportu cache i potwierdzenie poprawności działania tej metody - max 30% <br />
-Wedle poradnika: https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
-Utworzono akcje, z parametrami cache do instalacji pliku requirements.txt
+==============
+Wedle poradnika: https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows </br>
+Utworzono akcje, z parametrami cache do instalacji pliku requirements.txt <br />
 ![image](https://user-images.githubusercontent.com/41301282/170435346-c996f232-e945-497a-833c-df647c4e092e.png)
 
 Pierwszy run: <br />
@@ -101,6 +103,7 @@ Drugi run, juz z cache: <br />
 
 
 z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry – max. 20% <br />
+==============
 
 Wykorzystano github container registry zamiast dockerhub <br />
 konfiguracja prosta:  nalezy wygenerowac token i skonfigurowac plik ghcr.io w .github/workflows <br />
