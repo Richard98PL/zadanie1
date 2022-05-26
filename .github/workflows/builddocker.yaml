@@ -20,15 +20,6 @@ jobs:
       
       - uses: actions/checkout@v3
       
-      - name: Install pipenv
-        run: pipx install pipenv
-      - uses: actions/setup-python@v3
-        with:
-          python-version: '3.9'
-          cache: 'pipenv'
-          cache-dependency-path: Pipfile.lock
-      - run: pipenv install
-      
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
